@@ -12,19 +12,19 @@
 :ballot_box_with_check: `모바일 타겟`의 웹 앱을 구현하며 사용하기 `편리한 모바일 UI/UX`에 대해 고민해봅니다.  
 :ballot_box_with_check: 다른 라이브러리나 프레임워크 없이 오로지 `React`만으로 상태를 관리하고 컴포넌트를 설계합니다.  
 :ballot_box_with_check: `재사용 가능한 Component`를 직접 작성하고 사용합니다.  
-:ballot_box_with_check: `Controlled` & `Uncontrolled Components`에 입각하여 `Form`을 핸들링합니다.
+:ballot_box_with_check: `Controlled` & `Uncontrolled Components`에 입각하여 `Form`을 핸들링합니다.  
 
 # 진행 방향
 ## :white_check_mark: STEP 1 
 
 ### 구현 순서
-> `Storybook 기반으로 TDD 사이클`을 통해 안전하게 구현을 확장시켜나간다.
+> `Storybook 기반으로 TDD 사이클`을 통해 안전하게 구현을 확장시켜나간다.  
 
 1. Primitive UI(Atom) 구현  
 2. Molecule / Organism: 기본 블록을 조합  
 3. Headless UI 훅 (로직 분리)  
 4. Context + Compound Pattern 도입  
-5. TDD 사이클을 최적화(유닛 테스트, e2e 테스트 도입)
+5. TDD 사이클을 최적화(유닛 테스트, e2e 테스트 도입)  
 6. 최종 확장: Template & Page 구현  
 
 
@@ -59,7 +59,6 @@
 :ballot_box_with_check: <(뒤로가기) 버튼 클릭 시, 카드 목록 페이지로 이동한다.  
 :ballot_box_with_check: 카드 추가 완료시 카드 등록 완료 페이지로 이동한다.
 
-
 ### 비기능적 요구사항
 :ballot_box_with_check: step1은 화면(UI) 구현 중심 -> 기능별 폴더 분리  
 :ballot_box_with_check: 상향식 컴포넌트 계층(Atom, Molecule, Organism, Template, Page)으로 설계  
@@ -69,5 +68,5 @@
 :ballot_box_with_check: Context + Compound Pattern으로 각 단계 컴포넌트에 상태 공유  (부모가 로직/상태 관리 - 자식은 UI 관리)  
 
 ### 리팩토링 방향성
-:ballot_box_with_check: 관심사 변화에 따라 폴더 구조 점진적 리팩토링 (도메인, 역할 등...)
+:ballot_box_with_check: 관심사 변화에 따라 폴더 구조 점진적 리팩토링 (도메인, 역할 등...)  
 :ballot_box_with_check: 향후 step2, 3 진행할 때 stepper 구조 도입(Context로 전역 상태 공유하는 형태)
