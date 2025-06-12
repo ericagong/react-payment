@@ -1,0 +1,55 @@
+:root {
+  /* Palette: 디자이너와 협업을 위한 색상 계열 기준 */
+  /* Gray Scale */
+  --gray-100: #ecebf1;
+  --gray-200: #e5e5e5;
+  --gray-300: #d3d3d3;
+  --gray-400: #9ca3af;
+  --gray-500: #575757;
+  --gray-600: #525252;
+  --gray-700: #383838;
+
+  /* Accent Colors */
+  --yellow-400: #cbba64;
+  --mint-300: #94dacd;
+  --green-400: #56bd9f;
+
+  /* Others */
+  --white: #ffffff;
+  --black-25: rgba(0, 0, 0, 0.25);
+  --black-50: rgba(0, 0, 0, 0.5);
+
+  /* Semantic: 실제 UI 구성 요소에 의미 부여 */
+  /* --[category]-[property]-[target] 형식 네이밍 */
+  --color-background-page: var(--white);
+  --color-background-app: var(--white);
+  --color-background-card: var(--gray-200);
+  --color-background-input: var(--gray-100);
+  --color-background-modal-dimmed: var(--black-50);
+  --color-background-modal-dot: var(--mint-300);
+
+  --color-background-card: var(--mint-300);
+  --color-background-cardchip: var(--yellow-400);
+
+  --color-shadow: var(--black-25);
+
+  --color-text-page-title: var(--gray-600);
+  --color-text-page-next: var(--green-400);
+  --color-text-card: var(--gray-500);
+  --color-text-input-box: var(--gray-300);
+  --color-text-input-title: var(--gray-600);
+  --color-border-input: var(--gray-400);
+  --color-border-underline: var(--gray-700);
+  --color-text-input-basic: var(--green-400);
+
+  /* Typography */
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 24px;
+  --font-size-xxl: 30px;
+
+  --font-weight-normal: 400;
+  --font-weight-bold: 500;
+}

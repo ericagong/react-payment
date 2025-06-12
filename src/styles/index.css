@@ -1,8 +1,8 @@
-@import "./card.css";
-@import "./input.css";
-@import "./button.css";
-@import "./modal.css";
-@import "./utils.css";
+@import '../components/primitives/input.css';
+@import '../components/primitives/button.css';
+@import '../components/card.css';
+@import '../components/labeledInput.css';
+@import '../components/modal.css';
 
 body {
   display: flex;
@@ -10,15 +10,15 @@ body {
   gap: 0.5rem;
   align-items: center;
   justify-content: center;
-  background-color: #e5e5e5;
+  background-color: var(--color-background-page);
 }
 
 input {
-  font-size: 16px;
+  font-size: var(--font-size-md);
 }
 
 .root {
-  background-color: #fff;
+  background-color: var(--color-background-app);
   width: 375px;
   min-width: 375px;
   height: 700px;
@@ -32,11 +32,11 @@ input {
 }
 
 .page-title {
-  font-weight: 500;
-  font-size: 20px;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
   line-height: 22px;
   display: flex;
   align-items: center;
 
-  color: #383838;
+  color: var(--color-text-page-title);
 }

@@ -25,7 +25,7 @@
   top: 0;
   left: 0;
 
-  background: rgba(0, 0, 0, 0.5);
+  background: var(--color-background-modal-dimmed);
 
   border-radius: 15px;
 
@@ -44,10 +44,10 @@
   border-radius: 50%;
   width: 2.8rem;
   height: 2.8rem;
-  background-color: #94dacd;
+  background-color: var(--color-background-modal-dot);
 }
 
 .modal-item-name {
-  font-size: 12px;
+  font-size: var(--font-size-xs);
   letter-spacing: -0.085rem;
 }

@@ -16,10 +16,10 @@
   height: 130px;
 
   font-size: 30px;
-  color: #575757;
+  color: var(--color-text-card);
 
-  background: #e5e5e5;
-  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.25);
+  background: var(--color-background-card);
+  box-shadow: 3px 3px 5px var(--color-shadow);
   border-radius: 5px;
 
   user-select: none;
@@ -34,8 +34,8 @@
   width: 208px;
   height: 130px;
 
-  background: #94dacd;
-  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.25);
+  background: var(--color-background-card);
+  box-shadow: 3px 3px 5px var(--color-shadow);
   border-radius: 5px;
 }
 
@@ -45,7 +45,7 @@
   left: 95px;
   top: 122px;
 
-  background: #cbba64;
+  background: var(--color-background-cardchip);
   border-radius: 4px;
 }
 
@@ -58,8 +58,8 @@
   width: 290px;
   height: 180px;
 
-  background: #94dacd;
-  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.25);
+  background: var(--color-background-card);
+  box-shadow: 3px 3px 5px var(--color-shadow);
   border-radius: 5px;
 }
 
@@ -67,7 +67,7 @@
   width: 55.04px;
   height: 35.77px;
 
-  background: #cbba64;
+  background: var(--color-background-cardchip);
   border-radius: 4px;
 
   font-size: 24px;
@@ -120,17 +120,17 @@
 .card-text {
   margin: 0 16px;
 
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   line-height: 16px;
   vertical-align: middle;
-  font-weight: 400;
+  font-weight: var(--font-weight-normal);
 }
 
 .card-text__big {
   margin: 0 16px;
 
-  font-size: 18px;
+  font-size: var(--font-size-md);
   line-height: 20px;
   vertical-align: middle;
-  font-weight: 400;
+  font-weight: var(--font-weight-normal);
 }
