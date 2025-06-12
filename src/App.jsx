@@ -1,12 +1,13 @@
-function App() {
+import CardNumberInput from './components/organisms/CardNumberInput.jsx';
 
+function App() {
   return (
     <>
       <div>
-        <h1>Payment Page</h1>
+        <CardNumberInput />
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

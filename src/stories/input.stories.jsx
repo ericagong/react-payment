@@ -1,13 +1,24 @@
-import Input from '../components/Input.jsx';
+import { useState } from 'react';
+import LabledInput from '../components/molecules/LabledInput.jsx';
 
 export default {
-    title: 'Atom/Input',
-    component: Input,
+    title: 'Input',
+    component: LabledInput,
     args: {
-        title: 'label',
-        type: 'text',
-        placeholder: '',
+        title: '제목',
+        placeholder: '입력해주세요.',
     }
 }
 
-export const basic = (args) => <Input {...args} />;
+export const Default = (args) => {
+    const [value, setValue] = useState('');
+
+    return (
+        <LabledInput 
+            {...args} 
+            value={value} 
+            onChange={(e) => setValue(e.target.value)} 
+        />
+    );
+}
+
