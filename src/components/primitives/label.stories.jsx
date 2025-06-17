@@ -4,7 +4,8 @@ export default {
   title: 'Primitives/Label',
   component: Label,
   args: {
-    title: 'title',
+    id: 'id',
+    title: 'input title',
   },
   argTypes: {
     title: { control: 'text' },

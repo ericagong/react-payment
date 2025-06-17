@@ -5,12 +5,11 @@ export default {
   title: 'Primitives/Input',
   component: Input,
   args: {
+    id: 'id',
     placeholder: 'Enter text here',
   },
   argTypes: {
     placeholder: { control: 'text' },
-    value: { control: 'text' },
-    onChange: { action: 'changed' },
   },
 };
 

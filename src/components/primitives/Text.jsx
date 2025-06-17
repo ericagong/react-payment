@@ -1,14 +1,3 @@
-export default function Text({ fontSize, fontWeight, color, children }) {
-  return (
-    <div
-      className='text'
-      style={{
-        fontSize: fontSize,
-        fontWeight: fontWeight,
-        color: color,
-      }}
-    >
-      {children}
-    </div>
-  );
+export default function Text({ content }) {
+  return <div className='text-basic'>{content}</div>;
 }

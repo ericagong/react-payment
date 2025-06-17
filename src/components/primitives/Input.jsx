@@ -1,8 +1,9 @@
-export default function Input({ placeholder, value, onChange }) {
+export default function Input({ id, placeholder, value, onChange }) {
   return (
     <input
+      id={id}
       type='text'
-      className='input-basic'
+      className='input-transparent'
       placeholder={placeholder}
       value={value}
       onChange={onChange}

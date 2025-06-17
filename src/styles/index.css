@@ -1,8 +1,7 @@
-@import '../components/primitives/input.css';
-@import '../components/primitives/button.css';
-@import '../components/card.css';
-@import '../components/labeledInput.css';
-@import '../components/modal.css';
+@import '../components/styles/button.css';
+@import '../components/styles/card.css';
+@import '../components/styles/input.css';
+@import '../components/styles/modal.css';
 
 body {
   display: flex;

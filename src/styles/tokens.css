@@ -52,4 +52,24 @@
 
   --font-weight-normal: 400;
   --font-weight-bold: 500;
+
+  /* line-height */
+  --line-height-sm: 1.3;
+  --line-height-md: 1.4;
+  --line-height-lg: 1.5;
+
+  /* Spacing */
+  --spacing-sm: 4px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+
+  /* Border Radius */
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 0.75rem;
+
+  /* Icon Sizes */
+  --icon-size-sm: 20px;
+  --icon-size-md: 24px;
+  --icon-size-lg: 32px;
 }

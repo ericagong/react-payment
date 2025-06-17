@@ -1,6 +1,6 @@
-export default function Label({ title }) {
+export default function Label({ id, title, children }) {
   return (
-    <label className='input-title' htmlFor={title}>
+    <label className='input-title' htmlFor={id}>
       {title}
     </label>
   );
