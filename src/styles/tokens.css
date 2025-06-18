@@ -25,6 +25,8 @@
   --color-background-app: var(--white);
   --color-background-card: var(--gray-200);
   --color-background-input: var(--gray-100);
+  --color-background-icon: var(--gray-100);
+  --color-background-icon-active: var(--mint-300);
   --color-background-modal-dimmed: var(--black-50);
   --color-background-modal-dot: var(--mint-300);
 
@@ -67,9 +69,4 @@
   --border-radius-sm: 0.25rem;
   --border-radius-md: 0.5rem;
   --border-radius-lg: 0.75rem;
-
-  /* Icon Sizes */
-  --icon-size-sm: 20px;
-  --icon-size-md: 24px;
-  --icon-size-lg: 32px;
 }

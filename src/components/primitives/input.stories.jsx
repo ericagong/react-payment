@@ -6,6 +6,7 @@ export default {
   component: Input,
   args: {
     id: 'id',
+    type: 'text',
     placeholder: 'Enter text here',
   },
   argTypes: {
@@ -18,6 +19,7 @@ export const Default = (args) => {
   return (
     <Input
       {...args}
+      maxLength={30}
       value={value}
       onChange={(e) => {
         setValue(e.target.value);
