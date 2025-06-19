@@ -8,11 +8,10 @@ import Icon from '../primitives/Icon.jsx';
 import { BsQuestionCircle } from 'react-icons/bs';
 
 export default function SecurityCodeInput({ name, onChange }) {
-  const displayRef = useRef('');
-  const [handleUserInput, handleUserDelete] = useUncontrolledField({
+  const [displayRef, handleUserInput, handleUserDelete] = useUncontrolledField({
     name,
-    maxLength: 3,
-    validate: isNumber,
+    typeCheck: isNumber,
+    patternCheck: (value) => value.length <= 3,
     mask: convertToAsterisk,
     onChange,
   });
@@ -31,8 +30,8 @@ export default function SecurityCodeInput({ name, onChange }) {
             name={name}
             ref={displayRef}
             placeholder=''
-            onBeforeInput={(e) => handleUserInput(e, displayRef)}
-            onInput={(e) => handleUserDelete(e, displayRef)}
+            onBeforeInput={(e) => handleUserInput(e)}
+            onInput={(e) => handleUserDelete(e)}
           />
         </Center>
         <Icon

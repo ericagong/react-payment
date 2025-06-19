@@ -2,38 +2,54 @@ import { useRef } from 'react';
 
 export default function useUncontrolledField({
   name,
-  validate,
-  maxLength,
+  typeCheck,
+  patternCheck,
+  validationCheck,
+  format,
   mask,
   onChange,
 }) {
   const rawRef = useRef('');
+  const displayRef = useRef('');
 
-  const handleUserInput = (e, displayRef) => {
+  const updateRawValue = (newValue) => {
+    rawRef.current = newValue;
+  };
+
+  const updateDisplayValue = () => {
+    const raw = rawRef.current;
+    const formatted = format ? format(raw) : raw;
+    const masked = mask ? mask(formatted) : formatted;
+    displayRef.current.value = masked;
+  };
+
+  const updateFormState = () => {
+    onChange?.(name, rawRef.current);
+  };
+
+  const handleUserInput = (e) => {
     e.preventDefault();
-
     const key = e.data;
 
-    if (!validate(key)) return;
-    if (rawRef.current.length >= maxLength) return;
+    if (typeCheck && !typeCheck(key)) return;
 
-    rawRef.current += key;
-    const masked = mask(rawRef.current);
+    // TODO 반영하되, 에러 메시지로 다르게 처리할 수도 있음(현재는 미기입 처리)
+    const newValue = rawRef.current + key;
+    if (patternCheck && !patternCheck(newValue)) return;
+    if (validationCheck && !validationCheck(newValue)) return;
 
-    if (displayRef.current) {
-      displayRef.current.value = masked;
-    }
-
-    onChange?.(name, rawRef.current);
+    updateRawValue(newValue);
+    updateDisplayValue();
+    updateFormState();
   };
 
-  const handleUserDelete = (e, displayRef) => {
-    const maskedLength = displayRef.current?.value.length ?? 0;
-
-    rawRef.current = rawRef.current.slice(0, maskedLength);
-
-    onChange?.(name, rawRef.current);
+  const handleUserDelete = (e) => {
+    // TODO 범위 삭제 구현
+    const newValue = rawRef.current.slice(0, -1);
+    updateRawValue(newValue);
+    updateDisplayValue();
+    updateFormState();
   };
 
-  return [handleUserInput, handleUserDelete];
+  return [displayRef, handleUserInput, handleUserDelete];
 }

@@ -23,7 +23,7 @@ export default function CardOwnerNameInput({ name, value, onChange }) {
           maxLength={MAX_LENGTH}
           placeholder='카드에 표시된 이름과 동일하게 입력하세요.'
           value={value}
-          onChange={onChange}
+          onChange={(e) => onChange(name, e.target.value)}
         />
       </Center>
     </VStack>
