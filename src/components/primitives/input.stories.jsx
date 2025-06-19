@@ -19,6 +19,7 @@ export const Default = (args) => {
   return (
     <Input
       {...args}
+      name='value'
       maxLength={30}
       value={value}
       onChange={(e) => {

@@ -1,7 +1,10 @@
+import MainPage from './pages/MainPage.jsx';
+
 function App() {
   return (
     <>
-      <div>Payment Mission</div>
+      <div>Payment App</div>
+      <MainPage />
     </>
   );
 }

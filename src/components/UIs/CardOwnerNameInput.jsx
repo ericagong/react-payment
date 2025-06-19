@@ -3,12 +3,9 @@ import Label from '../primitives/Label.jsx';
 import Text from '../primitives/Text.jsx';
 import Input from '../primitives/Input.jsx';
 
-// TODO maxLength 30 분리
-export default function CardOwnerNameInput({
-  value,
-  onChange,
-  maxLength = 30,
-}) {
+export default function CardOwnerNameInput({ name, value, onChange }) {
+  const MAX_LENGTH = 30;
+
   return (
     <VStack className='input__container--medium'>
       <HStack>
@@ -16,13 +13,14 @@ export default function CardOwnerNameInput({
         <Spacer />
         <Text
           className='text--small'
-          content={`${value.length} / ${maxLength}`}
+          content={`${value.length} / ${MAX_LENGTH}`}
         />
       </HStack>
       <Center className='input__field-box'>
         <Input
           id='card-owner-name'
-          maxLength={maxLength}
+          name={name}
+          maxLength={MAX_LENGTH}
           placeholder='카드에 표시된 이름과 동일하게 입력하세요.'
           value={value}
           onChange={onChange}

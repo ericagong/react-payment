@@ -4,7 +4,7 @@ import Input from '../primitives/Input.jsx';
 import Icon from '../primitives/Icon.jsx';
 import { BsDot } from 'react-icons/bs';
 
-export default function PasswordInput({ values, onChanges, maxLength = 1 }) {
+export default function PasswordInput({ names, values, onChanges }) {
   return (
     <VStack className='input__container--medium'>
       <Label id='password' title='비밀번호' />
@@ -12,6 +12,7 @@ export default function PasswordInput({ values, onChanges, maxLength = 1 }) {
         <Center className='input__field-box input__field-box--single'>
           <Input
             id='password1'
+            name={names[0]}
             placeholder=''
             value={values[0]}
             onChange={(e) => onChanges(0, e.target.value)}
@@ -20,6 +21,7 @@ export default function PasswordInput({ values, onChanges, maxLength = 1 }) {
         <Center className='input__field-box input__field-box--single'>
           <Input
             id='password2'
+            name={names[1]}
             placeholder=''
             value={values[1]}
             onChange={(e) => onChanges(1, e.target.value)}

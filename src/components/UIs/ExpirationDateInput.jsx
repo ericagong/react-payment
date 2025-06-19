@@ -3,6 +3,7 @@ import Label from '../primitives/Label.jsx';
 import Input from '../primitives/Input.jsx';
 
 export default function ExpirationDateInput({
+  name,
   value,
   onChange,
   maxLength = 5,
@@ -13,6 +14,7 @@ export default function ExpirationDateInput({
       <Center className='input__field-box'>
         <Input
           id='expiration-date'
+          name={name}
           placeholder='MM/YY'
           maxLength={maxLength}
           value={value}

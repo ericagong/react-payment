@@ -17,13 +17,12 @@ input {
   font-size: var(--font-size-md);
 }
 
-.root {
+#root {
+  position: relative;
   background-color: var(--color-background-app);
   width: 375px;
   min-width: 375px;
   height: 700px;
-  position: relative;
-  border-radius: 15px;
 }
 
 .app {
