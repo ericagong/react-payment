@@ -1,25 +1,21 @@
 import Icon from './Icon.jsx';
-
 import { BsDot, BsQuestionCircle } from 'react-icons/bs';
 
 export default {
   title: 'Primitives/Icon',
   component: Icon,
-  args: {
-    color: 'currentColor',
-  },
 };
 
-export const Default = (args) => {
-  return <Icon {...args} icon={BsDot} />;
+const Template = (args) => <Icon {...args} />;
+
+export const InvalidIcon = Template.bind({});
+InvalidIcon.args = {
+  icon: BsDot,
+  isValid: false,
 };
 
-export const Clickable = (args) => {
-  const handleClick = () => {
-    alert('Clickable icon clicked!');
-  };
-
-  return (
-    <Icon {...args} icon={BsQuestionCircle} clickable onClick={handleClick} />
-  );
+export const ValidIcon = Template.bind({});
+ValidIcon.args = {
+  icon: BsQuestionCircle,
+  isValid: true,
 };

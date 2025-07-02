@@ -1,30 +1,19 @@
 import Input from './Input.jsx';
-import { useState } from 'react';
 
 export default {
   title: 'Primitives/Input',
-  component: Input,
-  args: {
-    id: 'id',
-    type: 'text',
-    placeholder: 'Enter text here',
-  },
+  copmponent: Input,
   argTypes: {
-    placeholder: { control: 'text' },
+    nativeType: {
+      defaultValue: 'text',
+    },
   },
 };
 
-export const Default = (args) => {
-  const [value, setValue] = useState('');
-  return (
-    <Input
-      {...args}
-      name='value'
-      maxLength={30}
-      value={value}
-      onChange={(e) => {
-        setValue(e.target.value);
-      }}
-    />
-  );
-};
+const Template = (props) => (
+  <div style={{ width: '50%' }}>
+    <Input placeholder='입력해주세요.' {...props} />
+  </div>
+);
+
+export const Default = Template.bind({});

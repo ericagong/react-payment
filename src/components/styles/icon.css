@@ -1,14 +1,17 @@
-.icon__container {
-  height: 32px;
+.icon-box {
   width: 32px;
+  height: 32px;
 }
 
-.icon__container--clickable {
+.icon-content {
+  color: var(--gray-700);
+}
+
+.icon-content.is-valid {
   cursor: pointer;
-  opacity: 0.5;
-  transition: opacity 0.3s ease-in-out;
+  color: var(--gray-400);
 }
 
-.icon__container--clickable:hover {
-  opacity: 1;
+.icon-content.is-valid:hover {
+  color: var(--mint);
 }

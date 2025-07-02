@@ -1,41 +1,7 @@
+@import './reset.css';
+@import './tokens.css';
+@import './layouts.css';
+
 @import '../components/styles/button.css';
-@import '../components/styles/card.css';
 @import '../components/styles/input.css';
 @import '../components/styles/icon.css';
-@import '../components/styles/modal.css';
-
-body {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--color-background-page);
-}
-
-input {
-  font-size: var(--font-size-md);
-}
-
-#root {
-  position: relative;
-  background-color: var(--color-background-app);
-  width: 375px;
-  min-width: 375px;
-  height: 700px;
-}
-
-.app {
-  height: 100%;
-  padding: 16px 24px;
-}
-
-.page-title {
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-lg);
-  line-height: 22px;
-  display: flex;
-  align-items: center;
-
-  color: var(--color-text-page-title);
-}

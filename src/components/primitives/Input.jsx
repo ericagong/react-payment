@@ -1,21 +1,19 @@
-export default function Input({
-  id,
-  name,
-  placeholder,
-  maxLength,
-  value,
-  onChange,
-}) {
-  return (
-    <input
-      id={id}
-      name={name}
-      type='text'
-      className='input__field'
-      placeholder={placeholder}
-      maxLength={maxLength}
-      value={value}
-      onChange={onChange}
-    />
-  );
-}
+import { forwardRef } from 'react';
+import classNames from 'classnames';
+
+const Input = forwardRef(
+  ({ nativeType = 'text', className = '', ...props }, ref) => {
+    return (
+      <input
+        type={nativeType}
+        className={classNames('input', className)}
+        ref={ref}
+        {...props}
+      />
+    );
+  },
+);
+
+Input.displayName = 'Input';
+
+export default Input;

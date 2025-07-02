@@ -1,24 +1,13 @@
 import { Center } from '../layouts/index.jsx';
+import classnames from 'classnames';
 
-export default function Icon({
-  icon: Icon,
-  className,
-  clickable = false,
-  onClick,
-  color = 'currentColor',
-}) {
-  const composedClassName = `icon__container ${className || ''} ${
-    clickable ? 'icon__container--clickable' : ''
-  }`;
-
+export default function Icon({ icon: Icon, isValid = false }) {
   return (
-    <Center
-      className={composedClassName}
-      role='img'
-      aria-hidden='true'
-      onClick={clickable ? onClick : undefined}
-    >
-      <Icon size={24} color={color} />
+    <Center className={classnames('icon-box')} role='img' aria-hidden='true'>
+      <Icon
+        size={24}
+        className={classnames('icon-content', { 'is-valid': isValid })}
+      />
     </Center>
   );
 }

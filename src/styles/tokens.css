@@ -10,9 +10,9 @@
   --gray-700: #383838;
 
   /* Accent Colors */
-  --yellow-400: #cbba64;
-  --mint-300: #94dacd;
-  --green-400: #56bd9f;
+  --yellow: #cbba64;
+  --mint: #94dacd;
+  --green: #56bd9f;
 
   /* Others */
   --white: #ffffff;
@@ -21,39 +21,14 @@
 
   /* Semantic: 실제 UI 구성 요소에 의미 부여 */
   /* --[category]-[property]-[target] 형식 네이밍 */
-  --color-background-page: var(--white);
-  --color-background-app: var(--white);
-  --color-background-card: var(--gray-200);
-  --color-background-input: var(--gray-100);
-  --color-background-icon: var(--gray-100);
-  --color-background-icon-active: var(--mint-300);
-  --color-background-modal-dimmed: var(--black-50);
-  --color-background-modal-dot: var(--mint-300);
-
-  --color-background-card: var(--mint-300);
-  --color-background-cardchip: var(--yellow-400);
-
-  --color-shadow: var(--black-25);
-
-  --color-text-page-title: var(--gray-600);
-  --color-text-page-next: var(--green-400);
-  --color-text-card: var(--gray-500);
-  --color-text-input-box: var(--gray-300);
-  --color-text-input-title: var(--gray-600);
-  --color-border-input: var(--gray-400);
-  --color-border-underline: var(--gray-700);
-  --color-text-input-basic: var(--green-400);
 
   /* Typography */
-  --font-size-xs: 12px;
-  --font-size-sm: 14px;
-  --font-size-md: 16px;
-  --font-size-lg: 18px;
-  --font-size-xl: 24px;
-  --font-size-xxl: 30px;
+  --font-size-sm: 12px;
+  --font-size-md: 14px;
+  --font-size-lg: 24px;
 
   --font-weight-normal: 400;
-  --font-weight-bold: 500;
+  --font-weight-bold: 700;
 
   /* line-height */
   --line-height-sm: 1.3;
@@ -66,7 +41,6 @@
   --spacing-lg: 24px;
 
   /* Border Radius */
-  --border-radius-sm: 0.25rem;
-  --border-radius-md: 0.5rem;
-  --border-radius-lg: 0.75rem;
+  --border-radius-md: 0.25rem;
+  --border-radius-lg: 0.5rem;
 }
