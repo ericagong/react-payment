@@ -5,7 +5,7 @@ import { Input } from '../../../components/primitives';
 
 const MONTH_DIGIT = 2;
 
-const Month = forwardRef(({ nativeType, focusNext, ...props }, ref) => {
+const Month = forwardRef(({ focusNext, ...props }, ref) => {
   const { handleInput } = useNumberInput(ref, {
     digitLength: MONTH_DIGIT,
   });
@@ -22,7 +22,7 @@ const Month = forwardRef(({ nativeType, focusNext, ...props }, ref) => {
     }
   };
 
-  return <Input placeholder='MM' ref={ref} onInput={onInput} {...props} />;
+  return <Input ref={ref} placeholder='MM' onInput={onInput} {...props} />;
 });
 
 export default Month;

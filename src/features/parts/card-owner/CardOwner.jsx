@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useFormContext } from '../../../providers/useFormContext';
 import useMaxLength from '../hooks/useMaxLength';
 import { InputContainer, Input } from '../../../components/primitives';
@@ -6,8 +6,7 @@ import { HStack, Spacer } from '../../../components/layouts';
 
 const CARD_OWNER_MAX_DIGIT = 30;
 
-export default function CardOwner() {
-  const ref = useRef(null);
+export default function CardOwner({ ref, nextRef }) {
   const [ownerLength, setOwnerLength] = useState(0);
   const { register, unregister } = useFormContext();
 
@@ -15,7 +14,12 @@ export default function CardOwner() {
 
   const handleInput = () => {
     const $target = ref.current;
+
     setOwnerLength($target.value.length);
+
+    if ($target.value.length >= CARD_OWNER_MAX_DIGIT) {
+      nextRef?.current?.focus();
+    }
   };
 
   useEffect(() => {

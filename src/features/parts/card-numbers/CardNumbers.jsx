@@ -1,15 +1,12 @@
 import { useFormContext } from '../../../providers/useFormContext';
 import { useEffect } from 'react';
-import useRefs from '../hooks/useRefs';
+import useFocusNext from '../hooks/useFocusNext';
 import { InputContainer, InputBox } from '../../../components/primitives';
 import CardNumber from './CardNumber';
 
-const CARD_NUMBER_FIELD_SIZE = 4;
-
-export default function CardNumbers() {
+export default function CardNumbers({ refs, nextRef }) {
   const { register, unregister } = useFormContext();
-
-  const refs = useRefs(CARD_NUMBER_FIELD_SIZE);
+  const { createFocusNextHandler } = useFocusNext(refs, nextRef);
 
   useEffect(() => {
     register('cardNumbers', () => {
@@ -20,25 +17,24 @@ export default function CardNumbers() {
     };
   }, []);
 
-  const focusNextHandler = (idx) => () => {
-    const $nextTarget = refs[idx + 1].current;
-    $nextTarget.focus();
-  };
-
   return (
     <InputContainer title='카드 번호'>
       <InputBox>
-        <CardNumber ref={refs[0]} focusNext={focusNextHandler(0)} />
+        <CardNumber ref={refs[0]} focusNext={createFocusNextHandler(0)} />
         -
-        <CardNumber ref={refs[1]} focusNext={focusNextHandler(1)} />
+        <CardNumber ref={refs[1]} focusNext={createFocusNextHandler(1)} />
         -
         <CardNumber
           ref={refs[2]}
           nativeType='password'
-          focusNext={focusNextHandler(2)}
+          focusNext={createFocusNextHandler(2)}
         />
         -
-        <CardNumber ref={refs[3]} nativeType='password' />
+        <CardNumber
+          ref={refs[3]}
+          nativeType='password'
+          focusNext={createFocusNextHandler(3)}
+        />
       </InputBox>
     </InputContainer>
   );
