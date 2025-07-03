@@ -1,50 +1,40 @@
+import { useFormContext } from '../../../providers/useFormContext';
 import useRefs from '../../../features/parts/hooks/useRefs';
-import useNumberInput from '../../../features/parts/hooks/useNumberInput';
-import { InputContainer, Input, Icon } from '../../../components/primitives';
+import { useEffect } from 'react';
+import { InputContainer, Icon } from '../../../components/primitives';
+import Password from './Password';
 import { Half, HStack, Min } from '../../../components/layouts';
 import { BsDot } from 'react-icons/bs';
 
 const CARD_PASSWORD_FIELD_SIZE = 2;
 export default function CardPassword() {
-  const [firstPWRef, secondPWRef] = useRefs(CARD_PASSWORD_FIELD_SIZE);
+  const { register, unregister } = useFormContext();
 
-  const { handleInput: handleFirstNumberInput } = useNumberInput(firstPWRef, {
-    digitLength: 1,
-  });
-  const { handleInput: handleSecondNumberInput } = useNumberInput(secondPWRef, {
-    digitLength: 1,
-  });
+  const [firstRef, secondRef] = useRefs(CARD_PASSWORD_FIELD_SIZE);
 
   const focusSecondPW = () => {
-    const $target = firstPWRef.current;
-    if ($target.value.length === $target.maxLength) {
-      secondPWRef.current.focus();
-    }
+    const $secondPWInput = secondRef.current;
+    $secondPWInput.focus();
   };
 
-  const handleFirstPWInput = () => {
-    handleFirstNumberInput();
-    focusSecondPW();
-  };
+  useEffect(() => {
+    register(
+      'password',
+      () => {
+        return [firstRef.current.value, secondRef.current.value];
+      },
+      () => {
+        unregister('password');
+      },
+    );
+  }, []);
 
   return (
     <InputContainer title='카드 비밀번호'>
       <Half>
         <HStack>
-          <Min>
-            <Input
-              ref={firstPWRef}
-              nativeType='password'
-              onInput={handleFirstPWInput}
-            />
-          </Min>
-          <Min>
-            <Input
-              ref={secondPWRef}
-              nativeType='password'
-              onInput={handleSecondNumberInput}
-            />
-          </Min>
+          <Password ref={firstRef} focusNext={focusSecondPW} />
+          <Password ref={secondRef} />
           <Min>
             <Icon icon={BsDot} isValid={false} />
           </Min>

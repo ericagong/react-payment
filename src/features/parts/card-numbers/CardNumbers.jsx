@@ -1,3 +1,5 @@
+import { useFormContext } from '../../../providers/useFormContext';
+import { useEffect } from 'react';
 import useRefs from '../hooks/useRefs';
 import { InputContainer, InputBox } from '../../../components/primitives';
 import CardNumber from './CardNumber';
@@ -5,16 +7,22 @@ import CardNumber from './CardNumber';
 const CARD_NUMBER_FIELD_SIZE = 4;
 
 export default function CardNumbers() {
+  const { register, unregister } = useFormContext();
+
   const refs = useRefs(CARD_NUMBER_FIELD_SIZE);
 
+  useEffect(() => {
+    register('cardNumbers', () => {
+      return refs.map((ref) => ref.current.value);
+    });
+    return () => {
+      unregister('cardNumbers');
+    };
+  }, []);
+
   const focusNextHandler = (idx) => () => {
-    const $target = refs[idx].current;
-    if ($target.value.length === $target.maxLength) {
-      if (idx + 1 < refs.length) {
-        const $nextTarget = refs[idx + 1].current;
-        $nextTarget.focus();
-      }
-    }
+    const $nextTarget = refs[idx + 1].current;
+    $nextTarget.focus();
   };
 
   return (

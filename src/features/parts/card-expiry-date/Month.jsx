@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
-import { Input } from '../../../components/primitives';
 import useNumberInput from '../hooks/useNumberInput';
 import { isValidMonth } from '../utils';
+import { Input } from '../../../components/primitives';
 
 const MONTH_DIGIT = 2;
 
@@ -17,7 +17,7 @@ const Month = forwardRef(({ nativeType, focusNext, ...props }, ref) => {
         '유효하지 않은 월입니다. 01부터 12 사이의 값을 입력해주세요.',
       );
     }
-    if (focusNext) {
+    if (ref.current.value.length === MONTH_DIGIT) {
       focusNext();
     }
   };
