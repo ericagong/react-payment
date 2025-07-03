@@ -1,7 +1,7 @@
-import InputContainer from './InputContainer.jsx';
-import { Half } from '../layouts/index.jsx';
-import InputBox from './InputBox.jsx';
-import Input from './Input.jsx';
+import InputContainer from './InputContainer';
+import { Half } from '../layouts';
+import InputBox from './InputBox';
+import Input from './Input';
 
 export default {
   title: 'Primitives/InputContainer',
@@ -10,21 +10,32 @@ export default {
 
 const Template = (props) => (
   <>
+    {/* 카드번호 */}
     <InputContainer {...props}>
       <InputBox>
-        <Input type='basic' placeholder='카드번호 1' /> -
-        <Input type='basic' placeholder='카드번호 2' /> -
-        <Input type='basic' nativeType='password' placeholder='카드번호 3' /> -
-        <Input type='basic' nativeType='password' placeholder='카드번호 4' />
+        <Input placeholder='카드번호 1' /> -
+        <Input placeholder='카드번호 2' /> -
+        <Input nativeType='password' placeholder='카드번호 3' /> -
+        <Input nativeType='password' placeholder='카드번호 4' />
       </InputBox>
     </InputContainer>
-
+    {/* 만료일 */}
     <InputContainer {...props}>
       <Half>
         <InputBox>
-          <Input type='basic' placeholder='YY' /> /
-          <Input type='basic' placeholder='MM' />
+          <Input placeholder='YY' /> /
+          <Input placeholder='MM' />
         </InputBox>
+      </Half>
+    </InputContainer>
+    {/* 카드 소유자 이름 */}
+    <InputContainer {...props}>
+      <Input placeholder='카드에 표시된 이름과 동일하게 입력하세요.' />
+    </InputContainer>
+    {/* 보안코드 */}
+    <InputContainer {...props}>
+      <Half>
+        <Input nativeType='password' />
       </Half>
     </InputContainer>
   </>
@@ -32,7 +43,7 @@ const Template = (props) => (
 
 export const WithTitle = Template.bind({});
 WithTitle.args = {
-  title: '타이틀이 있는 경우',
+  title: '타이틀',
 };
 
 export const WithoutTitle = Template.bind({});

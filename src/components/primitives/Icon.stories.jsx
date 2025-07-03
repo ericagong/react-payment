@@ -1,4 +1,4 @@
-import Icon from './Icon.jsx';
+import Icon from './Icon';
 import { BsDot, BsQuestionCircle } from 'react-icons/bs';
 
 export default {

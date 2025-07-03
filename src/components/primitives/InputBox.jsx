@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import { Center } from '../layouts/index.jsx';
+import { Center } from '../layouts';
 
 export default function InputBox({ className = '', children, ...props }) {
   return (

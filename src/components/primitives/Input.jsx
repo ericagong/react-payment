@@ -5,9 +5,9 @@ const Input = forwardRef(
   ({ nativeType = 'text', className = '', ...props }, ref) => {
     return (
       <input
+        ref={ref}
         type={nativeType}
         className={classNames('input', className)}
-        ref={ref}
         {...props}
       />
     );

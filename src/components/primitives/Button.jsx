@@ -1,4 +1,3 @@
-import { Center } from '../layouts/index.jsx';
 import classnames from 'classnames';
 
 export default function Button({
