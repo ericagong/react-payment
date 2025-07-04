@@ -1,5 +1,6 @@
 import { useFormContext } from '../../../providers/useFormContext';
-import useNumberInput from '../hooks/useNumberInput';
+import useNumericSanitizer from '../hooks/useNumericSanitizer';
+import useFieldCompleted from '../hooks/useFieldCompleted';
 import { useEffect } from 'react';
 import { InputContainer, Input, Icon } from '../../../components/primitives';
 import { Half, HStack } from '../../../components/layouts';
@@ -10,13 +11,18 @@ const SECURITY_CODE_DIGIT = 3;
 export default function CardSecurityCode({ ref, nextRef }) {
   const { register, unregister } = useFormContext();
 
-  const { handleInput: handleNumberInput } = useNumberInput(ref, {
-    digitLength: SECURITY_CODE_DIGIT,
+  const { sanitize } = useNumericSanitizer(ref);
+
+  const { isCompleted } = useFieldCompleted(ref, {
+    requiredLength: SECURITY_CODE_DIGIT,
   });
 
   const handleInput = () => {
-    handleNumberInput();
-    if (ref.current.value.length === SECURITY_CODE_DIGIT) {
+    sanitize();
+  };
+
+  const handleChange = () => {
+    if (isCompleted()) {
       nextRef?.current?.focus();
     }
   };
@@ -38,7 +44,13 @@ export default function CardSecurityCode({ ref, nextRef }) {
     <InputContainer title='보안 코드(CVC/CVV)'>
       <Half>
         <HStack>
-          <Input ref={ref} nativeType='password' onInput={handleInput} />
+          <Input
+            ref={ref}
+            nativeType='password'
+            maxLength={SECURITY_CODE_DIGIT}
+            onInput={handleInput}
+            onChange={handleChange}
+          />
           <Icon icon={BsQuestionCircle} isValid={true} onClick={handleClick} />
         </HStack>
       </Half>

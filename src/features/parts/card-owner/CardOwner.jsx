@@ -1,23 +1,24 @@
-import { useState, useEffect } from 'react';
 import { useFormContext } from '../../../providers/useFormContext';
-import useMaxLength from '../hooks/useMaxLength';
+import { useState, useEffect } from 'react';
+import useFieldCompleted from '../hooks/useFieldCompleted';
 import { InputContainer, Input } from '../../../components/primitives';
 import { HStack, Spacer } from '../../../components/layouts';
 
 const CARD_OWNER_MAX_DIGIT = 30;
 
 export default function CardOwner({ ref, nextRef }) {
-  const [ownerLength, setOwnerLength] = useState(0);
   const { register, unregister } = useFormContext();
 
-  useMaxLength(ref, { maxLength: CARD_OWNER_MAX_DIGIT });
+  const [ownerLength, setOwnerLength] = useState(0);
 
-  const handleInput = () => {
+  const { isCompleted } = useFieldCompleted(ref, {
+    requiredLength: CARD_OWNER_MAX_DIGIT,
+  });
+
+  const handleChange = () => {
     const $target = ref.current;
-
     setOwnerLength($target.value.length);
-
-    if ($target.value.length >= CARD_OWNER_MAX_DIGIT) {
+    if (isCompleted()) {
       nextRef?.current?.focus();
     }
   };
@@ -39,8 +40,9 @@ export default function CardOwner({ ref, nextRef }) {
       <Input
         ref={ref}
         required={false}
+        maxLength={CARD_OWNER_MAX_DIGIT}
         placeholder='카드에 표시된 이름과 동일하게 입력하세요.'
-        onInput={handleInput}
+        onChange={handleChange}
       />
     </InputContainer>
   );

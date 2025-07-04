@@ -20,7 +20,6 @@ export function CardEditForm() {
   const ownerRef = useRef(null);
   const securityCodeRef = useRef(null);
   const passwordRefs = useRefs(CARD_PASSWORD_FIELD_SIZE);
-  const submitButtonRef = useRef(null);
 
   const handleSubmit = (event) => {
     event.preventDefault();

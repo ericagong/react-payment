@@ -1,4 +1,4 @@
-export default function useFocusNext(refs, nextRef) {
+export default function useFocusNextHandler(refs, nextRef) {
   const isLastField = (idx) => idx === refs.length - 1;
 
   const getNextField = (idx) => {

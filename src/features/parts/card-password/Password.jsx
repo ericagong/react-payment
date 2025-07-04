@@ -1,22 +1,34 @@
-import useNumberInput from '../../../features/parts/hooks/useNumberInput';
+import useNumericSanitizer from '../hooks/useNumericSanitizer';
+import useFieldCompleted from '../hooks/useFieldCompleted';
 import { Min } from '../../../components/layouts';
 import { Input } from '../../../components/primitives';
 
 const PASSWORD_DIGIT = 1;
 export default function Password({ ref, focusNext }) {
-  const { handleInput: handleNumberInput } = useNumberInput(ref, {
-    digitLength: PASSWORD_DIGIT,
+  const { sanitize } = useNumericSanitizer(ref);
+  const { isCompleted } = useFieldCompleted(ref, {
+    requiredLength: PASSWORD_DIGIT,
   });
 
   const handleInput = () => {
-    handleNumberInput();
-    if (!focusNext) return;
-    if (ref.current.value.length === PASSWORD_DIGIT) focusNext();
+    sanitize();
+  };
+
+  const handleChange = () => {
+    if (isCompleted()) {
+      focusNext?.();
+    }
   };
 
   return (
     <Min>
-      <Input ref={ref} nativeType='password' onInput={handleInput} />
+      <Input
+        ref={ref}
+        nativeType='password'
+        maxLength={PASSWORD_DIGIT}
+        onInput={handleInput}
+        onChange={handleChange}
+      />
     </Min>
   );
 }

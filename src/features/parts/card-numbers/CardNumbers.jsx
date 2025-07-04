@@ -1,12 +1,12 @@
 import { useFormContext } from '../../../providers/useFormContext';
 import { useEffect } from 'react';
-import useFocusNext from '../hooks/useFocusNext';
+import useFocusNextHandler from '../hooks/useFocusNextHandler';
 import { InputContainer, InputBox } from '../../../components/primitives';
 import CardNumber from './CardNumber';
 
 export default function CardNumbers({ refs, nextRef }) {
   const { register, unregister } = useFormContext();
-  const { createFocusNextHandler } = useFocusNext(refs, nextRef);
+  const { createFocusNextHandler } = useFocusNextHandler(refs, nextRef);
 
   useEffect(() => {
     register('cardNumbers', () => {

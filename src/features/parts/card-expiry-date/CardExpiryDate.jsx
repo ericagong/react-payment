@@ -1,5 +1,5 @@
 import { useFormContext } from '../../../providers/useFormContext';
-import useFocusNext from '../hooks/useFocusNext';
+import useFocusNextHandler from '../hooks/useFocusNextHandler';
 import { useEffect } from 'react';
 import { InputContainer, InputBox } from '../../../components/primitives';
 import Month from './Month';
@@ -8,8 +8,10 @@ import { Half } from '../../../components/layouts';
 
 export default function ExpiryDate({ refs, nextRef }) {
   const [monthRef, yearRef] = refs;
+
   const { register, unregister } = useFormContext();
-  const { createFocusNextHandler } = useFocusNext(refs, nextRef);
+
+  const { createFocusNextHandler } = useFocusNextHandler(refs, nextRef);
 
   useEffect(() => {
     register('expiryDate', () => {

@@ -1,18 +1,24 @@
-import { forwardRef, useEffect } from 'react';
+import { forwardRef } from 'react';
 import { Input } from '../../../components/primitives';
-import useNumberInput from '../hooks/useNumberInput';
+import useNumericSanitizer from '../hooks/useNumericSanitizer';
+import useFieldCompleted from '../hooks/useFieldCompleted';
 
 const CARD_NUMBER_DIGIT = 4;
 
 const CardNumber = forwardRef(
   ({ name, nativeType, focusNext, ...props }, ref) => {
-    const { handleInput: handleNumberInput } = useNumberInput(ref, {
-      digitLength: CARD_NUMBER_DIGIT,
+    const { sanitize } = useNumericSanitizer(ref);
+
+    const { isCompleted } = useFieldCompleted(ref, {
+      requiredLength: CARD_NUMBER_DIGIT,
     });
 
-    const onInput = () => {
-      handleNumberInput();
-      if (ref.current.value.length === CARD_NUMBER_DIGIT) {
+    const handleInput = () => {
+      sanitize();
+    };
+
+    const handleChange = () => {
+      if (isCompleted()) {
         focusNext?.();
       }
     };
@@ -22,7 +28,9 @@ const CardNumber = forwardRef(
         ref={ref}
         nativeType={nativeType}
         required
-        onInput={onInput}
+        maxLength={CARD_NUMBER_DIGIT}
+        onInput={handleInput}
+        onChange={handleChange}
         {...props}
       />
     );

@@ -1,5 +1,5 @@
 import { useFormContext } from '../../../providers/useFormContext';
-import useFocusNext from '../hooks/useFocusNext';
+import useFocusNextHandler from '../hooks/useFocusNextHandler';
 import { useEffect } from 'react';
 import { InputContainer, Icon } from '../../../components/primitives';
 import Password from './Password';
@@ -9,7 +9,7 @@ import { BsDot } from 'react-icons/bs';
 export default function CardPassword({ refs, nextRef }) {
   const { register, unregister } = useFormContext();
 
-  const { createFocusNextHandler } = useFocusNext(refs, nextRef);
+  const { createFocusNextHandler } = useFocusNextHandler(refs, nextRef);
 
   useEffect(() => {
     register(

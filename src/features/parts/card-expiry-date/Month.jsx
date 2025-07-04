@@ -1,28 +1,53 @@
 import { forwardRef } from 'react';
-import useNumberInput from '../hooks/useNumberInput';
-import { isValidMonth } from '../utils';
+import useNumericSanitizer from '../hooks/useNumericSanitizer';
+import useFieldCompletion from '../hooks/useFieldCompleted';
+import useFieldValidator from '../hooks/useFieldValidator';
 import { Input } from '../../../components/primitives';
 
 const MONTH_DIGIT = 2;
 
 const Month = forwardRef(({ focusNext, ...props }, ref) => {
-  const { handleInput } = useNumberInput(ref, {
-    digitLength: MONTH_DIGIT,
+  const { sanitize } = useNumericSanitizer(ref);
+
+  const { isValid } = useFieldValidator(ref, {
+    maxLength: MONTH_DIGIT,
+    pattern: /^(0[1-9]|1[0-2])$/,
   });
 
-  const onInput = () => {
-    handleInput();
-    if (!isValidMonth(ref.current.value)) {
-      return window.alert(
-        '유효하지 않은 월입니다. 01부터 12 사이의 값을 입력해주세요.',
-      );
-    }
-    if (ref.current.value.length === MONTH_DIGIT) {
-      focusNext();
+  const { isCompleted } = useFieldCompletion(ref, {
+    requiredLength: MONTH_DIGIT,
+  });
+
+  const handleInput = () => {
+    sanitize();
+  };
+
+  const handleChange = () => {
+    if (isCompleted()) {
+      focusNext?.();
     }
   };
 
-  return <Input ref={ref} placeholder='MM' onInput={onInput} {...props} />;
+  const handleBlur = () => {
+    if (!isValid()) {
+      window.alert(
+        '유효하지 않은 월입니다. 01부터 12 사이의 값을 입력해주세요.',
+      );
+    }
+  };
+
+  return (
+    <Input
+      ref={ref}
+      required
+      placeholder='MM'
+      maxLength={MONTH_DIGIT}
+      onInput={handleInput}
+      onChange={handleChange}
+      onBlur={handleBlur}
+      {...props}
+    />
+  );
 });
 
 export default Month;
