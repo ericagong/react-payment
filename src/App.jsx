@@ -1,8 +1,11 @@
+import { AppWrapper } from './components/layouts';
+import CardEditPage from './features/containers/CardEditPage';
+
 function App() {
   return (
-    <>
-      <div>Payment Mission</div>
-    </>
+    <AppWrapper>
+      <CardEditPage />
+    </AppWrapper>
   );
 }
 

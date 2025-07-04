@@ -1,0 +1,12 @@
+.button-box {
+  text-align: right;
+}
+
+.button {
+  border: none;
+  background: none;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-md);
+  color: var(--mint);
+  cursor: pointer;
+}
