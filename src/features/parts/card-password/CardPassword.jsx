@@ -1,4 +1,4 @@
-import { useFormContext } from '../../../providers/useFormContext';
+import { useFormContext } from '../../../providers/FormProvider';
 import useFocusNextHandler from '../hooks/useFocusNextHandler';
 import { useEffect } from 'react';
 import { InputContainer, Icon } from '../../../components/primitives';
@@ -26,7 +26,7 @@ export default function CardPassword({ refs, nextRef }) {
   return (
     <InputContainer title='카드 비밀번호'>
       <Half>
-        <HStack>
+        <HStack spacing='var(--spacing-sm)'>
           <Password ref={refs[0]} focusNext={createFocusNextHandler(0)} />
           <Password ref={refs[1]} focusNext={createFocusNextHandler(1)} />
           <Icon icon={BsDot} isValid={false} />

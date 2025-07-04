@@ -1,6 +1,6 @@
 export default function VStack({
   children,
-  spacing = 'var(--spacing-sm, 1rem)',
+  spacing = 'var(--spacing-xs, 1rem)',
   align = 'stretch',
   justify = 'flex-start',
   ...props

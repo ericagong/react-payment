@@ -1,0 +1,10 @@
+.page-title {
+  display: flex;
+  align-items: center;
+
+  line-height: var(--line-height-lg);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+
+  color: var(--gray-700);
+}

@@ -2,7 +2,7 @@ import { createContext, useContext, useRef } from 'react';
 
 const FormContext = createContext(null);
 
-export function FormProvider({ children }) {
+export default function FormProvider({ children }) {
   const fieldsRef = useRef(new Map());
 
   const register = (name, getValueFn) => {
